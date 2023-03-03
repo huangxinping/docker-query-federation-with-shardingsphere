@@ -80,7 +80,7 @@ mysql> SHOW TABLES;
 
 ## 6、可以跨库、跨实例JOIN啦
 
-> 目前最新版 5.3.1 不支持中文，更新计划显示 5.3.2 会支持中文的条件判断
+> 目前最新版 5.3.1 不支持中文查询条件，如`WHERE accounts.name=黄xx`([issue](https://github.com/apache/shardingsphere/issues/23461))，更新计划显示 5.3.2 会支持中文的条件判断
 
 ```
 mysql> SELECT orderitems.quantity, accounts.name, accounts.age, product_details.name, product_details.price
