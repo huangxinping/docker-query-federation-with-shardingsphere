@@ -14,9 +14,12 @@
 - Docker
 - shardingsphere 5.3.1 （shardingsphere 版本之间配置有很大不同，网络上大多是 5.2.x 或 5.1.x 教程都已过时且跑不起来，注意分辨）
 
-## 教程
+## 操作步骤
 
 ## 1、跑一个单机版的 shardingsphere 实例 
+
+> conf/server.yaml 文件可配置 shardingsphere 内 MySQL 的账号、密码
+
 ```
 docker run -d --name shardingsphere \
     -v $PWD/conf:/opt/shardingsphere-proxy/conf \
