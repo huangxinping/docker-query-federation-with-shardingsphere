@@ -2,10 +2,10 @@
 
 ## 背景  
 
-> 微服务下有多个数据库，如：
-> 用户服务、产品服务、订单服务，每个服务都有自己的专属数据库。**单体架构**下完全可以通过JOIN操作，
-> 一次性将需要的数据查询出来，但**微服务架构**下，数据库分布在不同地方，JOIN操作无法使用，这时候
-> 通过sharding-sphere的跨库JOIN操作，就可以实现跨库JOIN
+> 微服务下有多个数据库，如：  
+> 用户服务、产品服务、订单服务，每个服务都有自己的专属数据库。**单体架构**下可以直接 JOIN 操作，
+> 但**微服务架构**下，表分布在不同的数据库，甚至于不同机房，无法直接 JOIN。这时候
+> 通过 sharding-sphere 的联邦查询，就可以实现跨库 JOIN
 
 <hr>
 
@@ -17,7 +17,12 @@
 ## 教程
 
 ## 1、跑一个单机版的 shardingsphere 实例 
-`bash run_container.sh`  
+```
+docker run -d --name shardingsphere \
+    -v $PWD/conf:/opt/shardingsphere-proxy/conf \
+    -v $PWD/ext-lib:/opt/shardingsphere-proxy/ext-lib \
+    -p 3307:3307 apache/shardingsphere-proxy:5.3.1
+```
 
 ## 2、进入 shardingsphere 内的 MySQL（端口默认为3307），并创建一个代理数据库  
 ```
