@@ -28,7 +28,7 @@ mode:
 authority:
   users:
     - user: root
-      password: 123456 # shardingsphere 里面的 MySQL 的账号、密码，与要跨库的 MySQL 无关
+      password: a8E2BC275F2edaB3 # shardingsphere 里面的 MySQL 的账号、密码，与要跨库的 MySQL 无关
   privilege:
     type: ALL_PERMITTED
 

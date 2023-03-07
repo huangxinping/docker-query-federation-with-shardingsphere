@@ -24,13 +24,14 @@
 docker run -d --name shardingsphere \
     -v $PWD/conf:/opt/shardingsphere-proxy/conf \
     -v $PWD/ext-lib:/opt/shardingsphere-proxy/ext-lib \
+    -v $PWD/logs:/opt/shardingsphere-proxy/logs \
     -p 3307:3307 apache/shardingsphere-proxy:5.3.1
 ```
 
 ## 2、进入 shardingsphere 内的 MySQL（端口默认为3307），并创建一个代理数据库  
 ```
 mysql -p -h127.0.0.1 -P3307 -uroot
-mysql> CREATE DATABASE testdb;
+mysql> CREATE DATABASE sharding_db;
 Query OK, 0 rows affected (6.51 sec)
 ```
 
@@ -40,7 +41,7 @@ mysql> SHOW DATABASES;
 +-------------+
 | schema_name |
 +-------------+
-| testdb      |
+| sharding_db |
 +-------------+
 1 row in set (0.04 sec)
 ```
@@ -52,7 +53,7 @@ mysql> SHOW DATABASES;
 
 
 ```
-mysql> USE testdb;
+mysql> USE sharding_db;
 Database changed
 
 mysql> REGISTER STORAGE UNIT ds_order(HOST="192.168.0.112",PORT=3306,DB="orders",USER="root",PASSWORD="123456");
