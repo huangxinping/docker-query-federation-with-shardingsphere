@@ -1,4 +1,5 @@
-# 使用 shardingsphere 做 MySQL 的跨库JOIN（联邦查询）
+# 使用 shardingsphere-proxy 做 MySQL 的跨库 JOIN（联邦查询）
+> shardingsphere-proxy 功能很多，本教程只使用到支持跨库 JOIN 的特性
 
 ## 背景  
 
